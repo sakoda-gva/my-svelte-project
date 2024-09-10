@@ -9,7 +9,7 @@ on:
 
 jobs:
   pr-open:
-    if: github.event.pull_request.opend == true
+    if: github.event.pull_request.opened == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
