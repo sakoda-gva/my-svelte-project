@@ -9,7 +9,6 @@ on:
 
 jobs:
   pr-open:
-    if: github.event_name == 'pull_request' && startsWith(github.head_ref, 'feature')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
