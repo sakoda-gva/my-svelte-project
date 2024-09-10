@@ -5,10 +5,11 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-    types: [ closed ]
+    types: [ closed, opened ]
 
 jobs:
   pr-open:
+    if: github.event.pull_request.opend == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
