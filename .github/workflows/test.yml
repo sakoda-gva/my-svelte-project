@@ -1,13 +1,12 @@
 name: Run Build
 
 on:
-  pull_request:
-    branches: [ main ]
-    types: [ opened, synchronize ]
+  push:
+    branches:
+      - 'feature/*'
 
 jobs:
   build-and-deploy:
-    if: startsWith( github.head_ref, 'feature/' )
     runs-on: ubuntu-24.04
 
     steps:
