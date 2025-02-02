@@ -10,7 +10,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-24.04
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }} # Run Build が成功した場合のみ実行
 
     steps:
       - name: Checkout
