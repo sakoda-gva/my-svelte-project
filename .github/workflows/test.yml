@@ -16,10 +16,10 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          BRANCH_NAME=${{ github.head_ref }}
           IMAGE_TAG=$(echo $BRANCH_NAME | tr '/' '-')
-          echo "docker build -t myrepo/app:$IMAGE_TAG ."
-          echo "docker push myrepo/app:$IMAGE_TAG"
+          echo "docker build -t dev/:$IMAGE_TAG ."
+          echo "docker push dev/:$IMAGE_TAG"
 
 
 #name: Run Tests
