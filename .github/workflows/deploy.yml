@@ -1,0 +1,20 @@
+name: Deploy dev
+
+on:
+  workflow_run:
+    workflows: ["Run Build"]
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+
+    if: github.event.workflow_run.conclusion == 'success'  # ビルド成功時のみ実行可能
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to dev
+        run: echo "Deploy to dev"  # (仮)デプロイコマンド

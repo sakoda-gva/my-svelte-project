@@ -1,0 +1,22 @@
+name: Run Build
+
+on:
+  pull_request:
+    branches:
+      - 'feature/**'
+    types: [opened, synchronize]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build and Push Docker Image
+        run: |
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          IMAGE_TAG=$(echo $BRANCH_NAME | tr '/' '-')
+          echo "docker build -t myrepo/app:$IMAGE_TAG ."
+          echo "docker push myrepo/app:$IMAGE_TAG"
