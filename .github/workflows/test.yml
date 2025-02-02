@@ -1,14 +1,9 @@
 name: Run Build
 
-#on:
-#  pull_request:
-#    branches: [ main ]
-#    types: [ opened, synchronize ]
-
 on:
-  push:
-    branches:
-      - 'feature/*'
+  pull_request:
+    branches: [ main ]
+    types: [ opened, synchronize ]
 
 jobs:
   build-and-deploy:
