@@ -3,7 +3,7 @@ name: Run Build
 on:
   pull_request:
     branches:
-      - 'feature/**'
+      - 'feature/*'
     types: [opened, synchronize]
 
 jobs:
